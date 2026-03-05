@@ -27,7 +27,7 @@ public class EntradasEmJava {
 		System.out.printf("Você digitou: %f%n%n", z);
 
 		// Exemplo de entrada de dados com Char
-		System.out.printf("Informe um valor para a variável z: %n");
+		System.out.printf("Informe um valor para a variável c: %n");
 		c = sc.next().charAt(0);
 		System.out.printf("Você digitou: %s%n%n", c);
 		
