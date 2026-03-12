@@ -37,7 +37,7 @@ public class Main {
 	
 	public static void mostrarResultado(int valor) {
 		
-		System.out.println("O maior valor é: " + valor);
+		System.out.println("O maior valor informado é: " + valor);
 		
 	}
 	
