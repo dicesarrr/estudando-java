@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		// Solucionando problema sem orientação a objetos
+		// Solucionando problema com orientação a objetos
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
