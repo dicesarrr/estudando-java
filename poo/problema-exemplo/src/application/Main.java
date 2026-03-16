@@ -25,7 +25,7 @@ public class Main {
 		System.out.println("Informe a quantidade do produto em estoque: ");
 		produto.quantidade = sc.nextInt();
 		
-		System.out.printf("%nDados do produto: %s, $ %.2f, %d unidades,%nValor total em estoque: $ %.2f%n%n", produto.nome, produto.preco, produto.quantidade, produto.valorTotalEstoque());
+		System.out.println(produto);
 		
 		System.out.println("Informe a quantidade de items que deseja adicionar: ");
 		int adicionarItems = sc.nextInt();
