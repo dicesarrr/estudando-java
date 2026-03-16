@@ -27,7 +27,7 @@ public class Produto {
 	
 	public String toString() {
 		
-		return nome + ", $ " + String.format("%.2f", preco) + ", " + quantidade +  " unidades, " + " Valor Total em Estoque: $ " + String.format("%.2f", valorTotalEstoque());
+		return nome + ", $ " + String.format("%.2f", preco) + ", " + quantidade +  " unidades, " + "Valor Total em Estoque: $ " + String.format("%.2f", valorTotalEstoque());
 		
 	}
 	

@@ -25,14 +25,19 @@ public class Main {
 		System.out.println("Informe a quantidade do produto em estoque: ");
 		produto.quantidade = sc.nextInt();
 		
-		System.out.println(produto);
+		System.out.printf("%nDados do produto: " + produto + "%n%n");
 		
-		System.out.println("Informe a quantidade de items que deseja adicionar: ");
+		System.out.println("Informe a quantidade de items que deseja adicionar no estoque: ");
 		int adicionarItems = sc.nextInt();
-		
 		produto.adicionarProdutos(adicionarItems);
 		
-		System.out.printf("Dados atualizados: %s, $ %.2f, $d unidades,%nValor total em estoque: $ %.2f%n%n", produto.nome, produto.preco, produto.quantidade);
+		System.out.printf("%nDados atualizados: " + produto + "%n%n");
+		
+		System.out.println("Informe a quantidade de items que deseja remover do estoque: ");
+		int removerItems = sc.nextInt();
+		produto.removerProdutos(removerItems);
+		
+		System.out.printf("%nDados atualizados: " + produto);
 		
 		sc.close();
 		
