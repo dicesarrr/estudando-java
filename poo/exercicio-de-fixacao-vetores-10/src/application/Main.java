@@ -1,9 +1,9 @@
 package application;
 
-import java.util.Locale;
+import java.util.Locale; 
 import java.util.Scanner;
 
-import entities.Pessoa;
+import entities.Aluno;
 
 public class Main {
 
@@ -12,40 +12,41 @@ public class Main {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Informa a pessoa de idade mais avançada.");
+		System.out.println("Informa os alunos que foram aprovados.");
 
-		System.out.println("Informe a quantidade de pessoas que serão inseridas no vetor: ");
-		int quantidadePessoas = sc.nextInt();
+		System.out.println("Informe a quantidade de alunos que serão inseridos no vetor: ");
+		int quantidadeAlunos = sc.nextInt();
 		
 		sc.nextLine();
 		
-		if (quantidadePessoas <= 0) {
+		if (quantidadeAlunos <= 0) {
 			System.out.println("Quantidade inválida.");
 			return;
 		}
 
-		Pessoa[] pessoas = new Pessoa[quantidadePessoas];
+		Aluno[] alunos = new Aluno[quantidadeAlunos];
 		
-		for (int i = 0; i < quantidadePessoas; i++) {
-			System.out.printf("%nDados da %da pessoa: %n", i + 1);
-			System.out.print("Nome: ");
+		for (int i = 0; i < quantidadeAlunos; i++) {
+			System.out.printf("%nInforme o nome do %do aluno: ", i + 1);
 			String nome = sc.nextLine();
-			System.out.print("Idade: ");
-			int idade = sc.nextInt();
+			System.out.printf("Informe a primeira nota do %do aluno: ", i + 1);
+			double nota1 = sc.nextDouble();
+			System.out.printf("Informe a segunda nota do %do aluno: ", i + 1);
+			double nota2 = sc.nextDouble();
 			sc.nextLine();
-			pessoas[i] = new Pessoa(nome, idade);
+			alunos[i] = new Aluno(nome, nota1, nota2);
 		}
 		
-		int maiorIdade = pessoas[0].getIdade();
-		String pessoaMaiorIdade = pessoas[0].getNome();
-		for (int i = 1; i < quantidadePessoas; i++) {
-			if (maiorIdade < pessoas[i].getIdade()) {
-				maiorIdade = pessoas[i].getIdade();
-				pessoaMaiorIdade = pessoas[i].getNome();
+		System.out.println("\nAlunos aprovados: ");
+		for (int i = 0; i < quantidadeAlunos; i++) {
+			double somatoriaNotas = alunos[i].getNota1() + alunos[i].getNota2();
+			
+			double mediaNotas = somatoriaNotas / 2;
+			
+			if (mediaNotas >= 6.0) {
+				System.out.println(alunos[i].getNome());
 			}
 		}
-		
-		System.out.println("\nA pessoa de idade mais avançada é: " + pessoaMaiorIdade);
 		
 		sc.close();
 
