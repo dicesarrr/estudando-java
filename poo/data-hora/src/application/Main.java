@@ -3,11 +3,14 @@ package application;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class Main {
 
 	public static void main(String[] args) {
+		
+		// Instanciando Data e Hora
 		
 		// Instanciando data local de agora
 		LocalDate data1 = LocalDate.now();
@@ -26,7 +29,7 @@ public class Main {
 		System.out.println("Data do meu próximo aniversário: " + data4);
 		
 		// Instanciando data e hora local utilizando uma formatação de texto
-		LocalDateTime data5 = LocalDateTime.parse("2027-03-25T00:00:00");
+		LocalDateTime data5 = LocalDateTime.parse("2027-03-25T15:27:00");
 		System.out.println("Data do próximo aniversário da minha mãe: " + data5);
 		
 		// Instanciando data e hora global (Zulu time / GMT) utilizando uma formatação de texto
@@ -53,6 +56,31 @@ public class Main {
 		LocalDateTime data11 = LocalDateTime.of(2026, 12, 20, 23, 15);
 		System.out.println("Data: " + data11);
 
+		System.out.println("------------------------------------------------------------------");
+		
+		// Formatando Data e Hora
+		
+		// Formatando Data em String
+		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		System.out.println("Data: " + data4.format(fmt1));
+		System.out.println("Data: " + fmt1.format(data4));
+		System.out.println("Data: " + data4.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+		
+		// Formatando Data e Hora em String
+		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		System.out.println("Data: " + data5.format(fmt2));
+
+		// Formatando Data e Hora com Time Zone em String
+		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+		System.out.println("Data: " + fmt3.format(data6));
+		
+		// Exemplo de formatação com ISO
+		DateTimeFormatter fmt4 = DateTimeFormatter.ISO_DATE_TIME;
+		System.out.println("Data: " + fmt4.format(data5));
+		
+		DateTimeFormatter fmt5 = DateTimeFormatter.ISO_INSTANT;
+		System.out.println("Data: " + fmt5.format(data6));
+		
 	}
 
 }
