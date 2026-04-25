@@ -81,6 +81,32 @@ public class Main {
 		DateTimeFormatter fmt5 = DateTimeFormatter.ISO_INSTANT;
 		System.out.println("Data: " + fmt5.format(data6));
 		
+		System.out.println("------------------------------------------------------------------");
+		
+		// Convertendo Data Hora global para local
+		LocalDate resultado1 = LocalDate.ofInstant(data6, ZoneId.systemDefault());
+		System.out.println("Data: " + resultado1);
+		
+		LocalDate resultado2 = LocalDate.ofInstant(data6, ZoneId.of("Portugal"));
+		System.out.println("Data: " + resultado2);
+		
+		LocalDateTime resultado3 = LocalDateTime.ofInstant(data6, ZoneId.systemDefault());
+		System.out.println("Data: " + resultado3);
+		
+		LocalDateTime resultado4 = LocalDateTime.ofInstant(data6, ZoneId.of("Portugal"));
+		System.out.println("Data: " + resultado4);
+		
+		System.out.println("------------------------------------------------------------------");
+		
+		// Obtendo dados de uma data-hora local
+		System.out.println("Dia da data 4: " + data4.getDayOfMonth());
+		System.out.println("Mês da data 4: " + data4.getMonthValue());
+		System.out.println("Ano da data 4: " + data4.getYear());
+		
+		System.out.println("Hora da data 5: " + data5.getHour());
+		System.out.println("Minutos da data 5: " + data5.getMinute());
+		System.out.println("Segundos da data 5: " + data5.getSecond());
+		
 	}
 
 }
