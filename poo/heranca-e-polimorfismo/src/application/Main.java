@@ -49,6 +49,17 @@ public class Main {
 		conta7.saque(200.0);
 		System.out.println(conta7.getSaldo());
 		
+		// Exemplo de polimorfismo
+		
+		Conta x = new Conta(2000, "Alex", 1000.0);
+		Conta y = new ContaPoupanca(2001, "Bea", 1000.0, 0.01);
+		
+		x.saque(50.0);
+		y.saque(50.0);
+		
+		System.out.println(x.getSaldo());
+		System.out.println(y.getSaldo());
+		
 		sc.close();
 		
 	}
