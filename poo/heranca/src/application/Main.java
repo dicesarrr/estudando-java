@@ -34,7 +34,21 @@ public class Main {
 		if (conta3 instanceof ContaPoupanca) {
 			System.out.println("Atualizado!");
 		}
+		
+		// Teste com sobreposição
+		
+		Conta conta5 = new Conta(1005, "Richard", 1000.0);
+		conta5.saque(200.0);
+		System.out.println(conta5.getSaldo());
 			
+		Conta conta6 = new ContaPoupanca(1006, "Howard", 1000.0, 0.01);
+		conta6.saque(200.0);
+		System.out.println(conta6.getSaldo());
+		
+		Conta conta7 = new ContaEmpresarial(1007, "Geneise", 1000.0, 500.0);
+		conta7.saque(200.0);
+		System.out.println(conta7.getSaldo());
+		
 		sc.close();
 		
 	}
