@@ -7,7 +7,7 @@ Repositório com todos os meus estudos em Java.
 - 01 - Fundamentos
 - 02 - POO
 - 03 - Coleções
-- 04 - Exceções
+- 04 - Avançado
 - 05 - Projetos
 
 ## 🚀 Objetivo
