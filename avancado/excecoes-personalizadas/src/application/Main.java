@@ -3,9 +3,11 @@ package application;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import model.entities.Reserva;
+import model.exceptions.DomainException;
 
 public class Main {
 
@@ -38,8 +40,10 @@ public class Main {
 		
 		} catch (ParseException erro){
 			System.out.println("Formato de data inválido.");
-		} catch (IllegalArgumentException erro) {
+		} catch (DomainException erro) {
 			System.out.println("Erro na reserva: " + erro.getMessage());
+		} catch (RuntimeException erro) {
+			System.out.println("Erro inesperado. Por favor informe um valor válido.");
 		}
 		
 		
