@@ -42,19 +42,17 @@ public class Reserva {
 		return TimeUnit.DAYS.convert(diferenca, TimeUnit.MILLISECONDS);
 	}
 
-	public String atualizarDatas(Date checkIn, Date checkOut) {
+	public void atualizarDatas(Date checkIn, Date checkOut) {
 		Date dataAgora = new Date();
 		if (checkIn.before(dataAgora) || checkOut.before(dataAgora)) {
-			return "As datas de reserva devem ser datas futuras.";
+			throw new IllegalArgumentException("As datas de reserva devem ser datas futuras.");
 		}
 		if (!checkOut.after(checkIn)) {
-			return "A data de check-out precisa ser depois da data de check-in.";
+			throw new IllegalArgumentException("A data de check-out precisa ser depois da data de check-in.");
 		}
 
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
-		
-		return null;
 	}
 
 	@Override
