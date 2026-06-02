@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 import model.entities.AluguelDeCarro;
 import model.entities.Veiculo;
+import model.services.AluguelService;
+import model.services.TaxaBrasileiraService;
 
 public class Main {
 
@@ -24,11 +26,25 @@ public class Main {
 		System.out.print("Modelo do carro: ");
 		String modelo = sc.nextLine();
 		System.out.print("Retirada (dd/MM/yyyy hh:mm): ");
-		LocalDateTime inicioAluguel = LocalDateTime.parse(sc.next(), formatoDataHora);
+		LocalDateTime inicioAluguel = LocalDateTime.parse(sc.nextLine(), formatoDataHora);
 		System.out.print("Retirada (dd/MM/yyyy hh:mm): ");
-		LocalDateTime finalAluguel = LocalDateTime.parse(sc.next(), formatoDataHora);
+		LocalDateTime finalAluguel = LocalDateTime.parse(sc.nextLine(), formatoDataHora);
 		
-		AluguelDeCarro carro = new AluguelDeCarro(inicioAluguel, finalAluguel, new Veiculo(modelo));
+		AluguelDeCarro aluguelCarro = new AluguelDeCarro(inicioAluguel, finalAluguel, new Veiculo(modelo));
+		
+		System.out.print("Informe o preço por hora: ");
+		double precoPorHora = sc.nextDouble();
+		System.out.print("Informe o preço por dia: ");
+		double precoPorDia = sc.nextDouble();
+		
+		AluguelService aluguelService = new AluguelService(precoPorHora, precoPorDia, new TaxaBrasileiraService());
+		
+		aluguelService.processoFatura(aluguelCarro);
+		
+		System.out.println("FATURA: ");
+		System.out.println("Pagamento básico: " + String.format("%.2f", aluguelCarro.getFatura().getPagamentoBasico()));
+		System.out.println("Imposto: " + String.format("%.2f", aluguelCarro.getFatura().getTaxa()));
+		System.out.println("Pagamento total: " + String.format("%.2f", aluguelCarro.getFatura().getPagamentoTotal()));
 		
 		sc.close();
 		 
